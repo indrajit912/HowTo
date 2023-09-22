@@ -4,7 +4,7 @@ This guide will walk you through the installation process of MySQL Community Ser
 
 - Author: [Indrajit Ghosh](https://github.com/indrajit912)
 
-- GitHub URL: [LaTeX Installation Guide]()
+- GitHub URL: [LaTeX Installation Guide](https://github.com/indrajit912/HowTo/blob/master/guides/install_mysql.md)
 
 - License: [MIT](../LICENSE)
 

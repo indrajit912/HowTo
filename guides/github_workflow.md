@@ -4,7 +4,7 @@ In this document, I outline the standard steps I follow whenever I create a new 
 
 - Author: [Indrajit Ghosh](https://github.com/indrajit912)
 
-- GitHub URL: [My GitHub Reposatry Workflow](https://github.com/indrajit912/HowTo/blob/c73e4a17af1549dd420674f851622c082cb10e36/guides/github_workflow.md)
+- GitHub URL: [My GitHub Reposatry Workflow](https://github.com/indrajit912/HowTo/blob/master/guides/github_workflow.md)
 
 - License: [MIT](../LICENSE)
 

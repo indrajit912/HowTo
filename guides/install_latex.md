@@ -4,7 +4,7 @@ This guide provides step-by-step instructions for installing LaTeX distributions
 
 - Author: [Indrajit Ghosh](https://github.com/indrajit912)
 
-- GitHub URL: [LaTeX Installation Guide](https://github.com/indrajit912/HowTo/blob/d2c23dab3cfa56454197153f1d411b36dcd7937c/guides/install_latex.md)
+- GitHub URL: [LaTeX Installation Guide](https://github.com/indrajit912/HowTo/blob/master/guides/install_latex.md)
 
 - License: [MIT](../LICENSE)
 

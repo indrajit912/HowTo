@@ -31,7 +31,7 @@ Browse the following installation and setup guides for commonly used software:
 - [My GitHub Workflow](guides/github_workflow.md)
   - This guide provides a detailed demonstration of the GitHub workflow I personally follow.
 
-- [MySQL Installation](guides/github_workflow.md)
+- [MySQL Installation](guides/install_mysql.md)
   - In this section, we'll walk you through the step-by-step process of installing MySQL on your system, whether you are using Linux, macOS, or Windows.
 
 <!-- Add more software guides here -->

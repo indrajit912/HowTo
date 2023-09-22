@@ -28,6 +28,12 @@ Browse the following installation and setup guides for commonly used software:
 - [LaTeX Distribution Setup](guides/install_latex.md)
   - Learn how to install and configure a LaTeX distribution for typesetting documents.
 
+- [My GitHub Workflow](guides/github_workflow.md)
+  - This guide provides a detailed demonstration of the GitHub workflow I personally follow.
+
+- [MySQL Installation](guides/github_workflow.md)
+  - In this section, we'll walk you through the step-by-step process of installing MySQL on your system, whether you are using Linux, macOS, or Windows.
+
 <!-- Add more software guides here -->
 
 ## Contributing

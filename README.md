@@ -34,6 +34,9 @@ Browse the following installation and setup guides for commonly used software:
 - [MySQL Installation](guides/install_mysql.md)
   - In this section, we'll walk you through the step-by-step process of installing MySQL on your system, whether you are using Linux, macOS, or Windows.
 
+- [Start `systemd` Service](guides/start_systemd_service.md)
+  - This guide will help you create and manage a Systemd service for your Python Flask application.
+
 <!-- Add more software guides here -->
 
 ## Contributing

@@ -92,7 +92,12 @@ Follow the steps below to add your public key to GitHub:
     git commit -m "The bug fixed!"
     ```
 
-4. Add remote repositary (such as GitHub repositary) to your local repo:
+4. Store your credentials on your local machine
+    ```bash
+    git config --global credential.helper store
+    ```
+
+5. Add remote repositary (such as GitHub repositary) to your local repo:
     ```bash
     git remote add <REMOTE_REPO_NAME> <REMOTE_REPO_URL>
     ```
@@ -104,7 +109,7 @@ Follow the steps below to add your public key to GitHub:
     ```bash
     git remote add overleaf https://overleaf.com/your-overleaf-project
     ```
-5. You can see all remote address by the following:
+6. You can see all remote address by the following:
     ```bash
     git remote -v
     ```

@@ -71,7 +71,13 @@ Follow these steps to start a Systemd service for your Python Flask application.
 
    If you want your Flask application to start automatically when your server boots up, enable the service:
    ```bash
-   sudo systemctl enable mindcanvas
+   sudo systemctl enable my-flask-app
    ```
 
 
+9. **Restarting the Service:**
+   If you've made modifications to the Python script, apply the changes and restart the service using the following commands:
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl restart adnotifier.service
+   ```

@@ -41,11 +41,32 @@ This guide will walk you through the installation process of MySQL Community Ser
     sudo systemctl enable mysql
     ```
 
-7. MySQL is now installed and running on your Linux system. You can access it by running:
+7. MySQL has been successfully installed and is now running on your Linux system. Initially, there is no password required to log in as the user root. To log in as root, utilize the following command:
     ```
-    mysql -u root -p
+    sudo mysql -u root
     ```
 
+8. You can now establish a password for the root user through the following command within the MySQL shell:
+    ```bash
+    ALTER USER 'root'@'localhost' IDENTIFIED BY '<your_new_password>';
+    ```
+    For instance, if you wish to set the password as `hello123`, execute:
+
+    ```bash
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'hello123';
+    ```
+    *NOTE*. If any issues arise during this process, you may attempt the following command prior to setting the new password:
+
+    ```bash
+    UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root';
+    FLUSH PRIVILEGES;
+    QUIT;
+    ```
+
+9. Once the new password has been successfully set, employ the following command to log in to the MySQL server as the `root` user:
+    ```bash
+    mysql -u root -p
+    ```
 ---
 
 ## macOS Installation

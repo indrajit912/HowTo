@@ -8,76 +8,7 @@ In this document, I outline the standard steps I follow whenever I create a new 
 
 - License: [MIT](../LICENSE)
 
-## Step 1: Creating an SSH Key (if not already created)
-
-To push your local Git repository to a remote repository (e.g., GitHub, GitLab), you'll need an SSH (public and private) RSA key pair. Follow these steps to create the RSA key pair:
-
-1. First, ensure that `ssh` is installed on your system. Here are the commands to install ssh on various systems:
-
-    For Linux:
-
-    You typically don't need to install ssh separately on most Linux distributions as it's usually included by default. However, you can check if it's installed by running:
-
-    ```bash
-    ssh -V 
-    ```
-    If it's not installed, you can install it using your distribution's package manager. For example, on Ubuntu/Debian, you can use:
-
-    ```bash
-    sudo apt-get install openssh-client
-    ```
-
-    For Windows:
-
-    Windows 10 and later versions come with an OpenSSH client pre-installed. To check if it's installed or install it manually, you can follow these steps:
-
-    - Open PowerShell as an administrator.
-    - Run the following command to check if OpenSSH is installed:
-
-        ```bash
-        Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Client*'
-        ```
-    - If it's not installed, you can install it using:
-        ```bash
-        Add-WindowsCapability -Online -Name OpenSSH.Client*
-        ```
-
-2. Change the directory to `~/.ssh`. If this directory does not exist, you can create it:
-
-    ```bash
-    cd ~/.ssh # Create this directory if it doesn't exist
-    ```
-
-3. Generate the SSH key pair using the appropriate command based on your operating system:
-
-    For Linux or MacOS:
-
-    ```bash
-    ssh-keygen
-    ```
-
-    For Windows:
-
-    ```bash
-    ssh-keygen.exe
-    ```
-
-    During this process, you may be prompted for input; you can generally press ENTER to accept the default values.
-
-4. After completing the key generation, you will have two files: `id_rsa` (the private key, which must be kept secret) and `id_rsa.pub` (the RSA public key). You can copy the contents of `id_rsa.pub` and paste it into your GitHub (or GitLab) account settings to enable secure access.
-
-
-## Step 2: Adding SSH Public Key to GitHub
-
-Follow the steps below to add your public key to GitHub:
-
-1. Log in to your GitHub acc.
-2. Goto `settings`
-3. Click onto `SSH and GPG keys`
-4. Click on the button `New SSH key` to add your key!
-
-
-## Step 3: Initialize `git` To Local Repositary.
+## Step 1: Initialize `git` To Local Repositary.
 1. `cd` to your local repositary path
 2. Use the following command to initialize `git` inside your local repositary:
     ```bash
@@ -92,12 +23,7 @@ Follow the steps below to add your public key to GitHub:
     git commit -m "The bug fixed!"
     ```
 
-4. Store your credentials on your local machine
-    ```bash
-    git config --global credential.helper store
-    ```
-
-5. Add remote repositary (such as GitHub repositary) to your local repo:
+4. Add remote repositary (such as GitHub repositary) to your local repo:
     ```bash
     git remote add <REMOTE_REPO_NAME> <REMOTE_REPO_URL>
     ```
@@ -109,13 +35,22 @@ Follow the steps below to add your public key to GitHub:
     ```bash
     git remote add overleaf https://overleaf.com/your-overleaf-project
     ```
-6. You can see all remote address by the following:
+5. You can see all remote address by the following:
     ```bash
     git remote -v
     ```
 
+## Step 2: Creating an personal access token in GitHub
 
-## Step 4: Pushing your local repo to GitHub
+To push your local Git repository to a remote repository (e.g., GitHub, GitLab), you'll need a personal access token from github. Generate one for yourself by:
+
+- Log into your github account.
+- Go to `settings`
+- Click on `<> Developer settings`
+- Generate a new personal access token (classic). Don't forget to tick appropriate rights for this token.
+- Copy the token and store it somewhere temporarily!
+
+## Step 3: Pushing your local repo to GitHub
 
 Use the following cmds inside your local repositary to push it to your GitHub everytime.
 ```bash
@@ -125,4 +60,13 @@ For example,
 ```bash
 git push -u origin master
 ```
+This will ask for the `username` and `password`. For the password enter the token that you generated earlier and hit ENTER.
+
+Now store your credentials on your local machine
+```bash
+git config --global credential.helper store
+```
+
+This will store the token in your local machine so that from next time onward you don't need to enter username and password.
+
 

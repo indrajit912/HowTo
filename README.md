@@ -24,18 +24,17 @@ If you're new to this repository, follow these steps to get started:
 ## Software Guides
 
 Browse the following installation and setup guides for commonly used software:
+- [Python3 Installation](guides/install_python.md)
 
 - [LaTeX Distribution Setup](guides/install_latex.md)
-  - Learn how to install and configure a LaTeX distribution for typesetting documents.
 
 - [My GitHub Workflow](guides/github_workflow.md)
-  - This guide provides a detailed demonstration of the GitHub workflow I personally follow.
 
 - [MySQL Installation](guides/install_mysql.md)
-  - In this section, we'll walk you through the step-by-step process of installing MySQL on your system, whether you are using Linux, macOS, or Windows.
 
 - [Start `systemd` Service](guides/start_systemd_service.md)
-  - This guide will help you create and manage a Systemd service for your Python Flask application.
+
+- [Koha Installation](guides/install_koha.md)
 
 <!-- Add more software guides here -->
 

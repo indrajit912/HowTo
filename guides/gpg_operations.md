@@ -204,3 +204,28 @@ gpg --delete-key your.email@example.com
 ```bash
 gpg --delete-secret-key your.email@example.com
 ```
+
+## 9. Signing a Message or File
+### Sign a Message
+```bash
+gpg --output signed_message.asc --sign message.txt
+```
+
+- Description: Signs a message using your private key.
+- Details: Replace 'message.txt' with the file containing the message you want to sign. The output file 'signed_message.asc' will contain the signed message in ASCII-armored format.
+
+### Sign a File
+
+```bash
+gpg --output signed_file.gpg --sign file_to_sign.txt
+```
+- Description: Signs a file using your private key.
+- Details: Replace 'file_to_sign.txt' with the file you want to sign. The output file 'signed_file.gpg' will contain the signed file.
+
+### Verify a Signed File
+
+```bash
+gpg --verify signed_file.gpg
+```
+- Description: Verifies the signature of a signed file.
+- Details: Replace 'signed_file.gpg' with the file containing the signed file. This command will verify if the signature is valid and display information about the signer.

@@ -34,10 +34,14 @@ gpg --full-generate-key --expire-date 2y
 ```
 You can replace 2y with other values such as 1y (1 year), 6m (6 months), 10d (10 days), or a specific date in YYYY-MM-DD format (2025-12-31).
 
-## 2. Importing Own Public Key
-
+## 2. Exporting and Importing Own Public Key
+To export a public key use:
 ```bash
-gpg --import your_public_key.asc
+gpg --armor --output public_key.asc --export <youremail@example.com>
+```
+To import a public key use:
+```bash
+gpg --import public_key.asc
 ```
 
 - **Description**: Imports your public key into your GPG keyring.

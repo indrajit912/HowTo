@@ -109,24 +109,6 @@ gpg --import private_key.asc
 - **Description**: Imports your private key on a new device.
 - **Details**: Replace 'private_key.asc' with the actual file containing your private key.
 
----
-
-**Completion Message**: GPG operations completed.
-```
-
-This Markdown file provides clear documentation for each GPG operation along with descriptions and details on how to use each command effectively. Adjust the placeholders (`your_public_key.asc`, `recipient@example.com`, etc.) with actual values based on your specific needs.Certainly! Here is the content of the script formatted as a Markdown file (`gpg_operations_script.md`):
-
-```markdown
-# GPG Operations Script
-
-This script demonstrates common GPG operations with documentation strings for each step.
-
-## 1. Create New Keys
-
-```bash
-gpg --full-generate-key
-```
-
 - **Description**: Generates a new GPG key pair.
 - **Details**: Prompts you to enter your name, email address, and a passphrase for the key.
 

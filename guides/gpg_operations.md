@@ -4,21 +4,30 @@ This Markdown file serves as a comprehensive guide and reference for performing 
 
 ## Table of Contents
 
-1. [Generating New Keys](#1-generating-new-keys)
-2. [Exporting and Importing Own Public Key](#2-exporting-and-importing-own-public-key)
-3. [Encrypting a Message Using Someone's Public Key](#3-encrypting-a-message-using-someones-public-key)
-4. [Decrypting an Encrypted Message](#4-decrypting-an-encrypted-message)
-5. [Encrypt/Decrypt a File](#5-encryptdecrypt-a-file)
-6. [Saving Own Private Key Securely](#6-saving-own-private-key-securely)
-7. [Importing Private Key on New Device](#7-importing-private-key-on-new-device)
-8. [Deleting a GPG Key Pair](#8-deleting-a-gpg-key-pair)
-9. [Signing a Message or File](#9-signing-a-message-or-file)
-10. [Listing all GPG keys](#10-listing-all-gpg-keys)
-11. [GPG Key Fingerprint](#11-gpg-key-fingerprint)
+Here's the table of contents (TOC) based on your provided content:
 
+1. [Generating New Keys](#1-generating-new-keys)
+2. [Listing all GPG keys](#2-listing-all-gpg-keys)
+3. [Exporting and Importing Own Public Key](#3-exporting-and-importing-own-public-key)
+4. [Encrypting a Message Using Someone's Public Key](#4-encrypting-a-message-using-someones-public-key)
+    - [Quick Encryption of a Small Message](#quick-encryption-of-a-small-message)
+5. [Decrypting an Encrypted Message](#5-decrypting-an-encrypted-message)
+6. [Encrypt/Decrypt a File](#6-encryptdecrypt-a-file)
+    - [Encrypt a File](#encrypt-a-file)
+    - [Decrypt a File](#decrypt-a-file)
+7. [Saving Own Private Key Securely](#7-saving-own-private-key-securely)
+8. [Importing Private Key on New Device](#8-importing-private-key-on-new-device)
+9. [Deleting a GPG Key Pair](#9-deleting-a-gpg-key-pair)
+    - [Delete Public Key](#delete-public-key)
+    - [Delete Secret Key](#delete-secret-key)
+10. [Signing a Message or File](#10-signing-a-message-or-file)
+    - [Step 1: Sign the File](#step-1-sign-the-file)
+    - [Step 2: Verify the Signature (Recipient's Part)](#step-2-verify-the-signature-recipients-part)
+11. [GPG Key Fingerprint](#11-gpg-key-fingerprint)
+    - [Viewing Key Fingerprint](#viewing-key-fingerprint)
 ---
 
-## 1. Generating New Keys
+## 1. [Generating New Keys](#1-generating-new-keys)
 
 ```bash
 gpg --full-generate-key
@@ -27,46 +36,48 @@ gpg --full-generate-key
 - **Description**: Generates a new GPG key pair.
 - **Details**: Prompts you to enter your name, email address, and a passphrase for the key.
 
-### Setting an Expiration Date for a GPG Private Key
-
+## 2. [Listing all GPG keys](#2-listing-all-gpg-keys)
+Use the following command to list all public and secret keys
 ```bash
-gpg --full-generate-key --expire-date 2y
+gpg --list-keys  # For listing public keys
+gpg --list-secret-keys  # For listing secret keys
 ```
+Note that you can see the fingerprint of the key when you list the keys!
 
-## 2. Exporting and Importing Own Public Key
-
+## 3. [Exporting and Importing Own Public Key](#3-exporting-and-importing-own-public-key)
+Use the following command to export your public key. You can use alternatively the associated email id in place of KEY_FINGERPRINT.
 ```bash
-gpg --armor --output public_key.asc --export <youremail@example.com>
+gpg --armor --output public_key.asc --export <KEY_FINGERPRINT>
 ```
-
+To import a public key stored in a file `public_key.asc` use the following
 ```bash
 gpg --import public_key.asc
 ```
 
-## 3. Encrypting a Message Using Someone's Public Key
+## 4. [Encrypting a Message Using Someone's Public Key](#4-encrypting-a-message-using-someones-public-key)
 
 ```bash
-gpg --armor --output encrypted_message.asc --encrypt --recipient recipient@example.com message.txt
+gpg --armor --output encrypted_message.asc --encrypt --recipient <PUBLIC_KEY_FINGERPRINT> message.txt
 ```
 
 ### Quick Encryption of a Small Message
 
 ```bash
-echo "Here is a small secret message" | gpg --armor --encrypt --recipient recipient@example.com > message.txt
+echo "Here is a small secret message" | gpg --armor --encrypt --recipient <PUBLIC_KEY_FINGERPRINT> message.txt
 ```
 
-## 4. Decrypting an Encrypted Message
-
+## 5. [Decrypting an Encrypted Message](#5-decrypting-an-encrypted-message)
+The following command will decrypt the message. Note it requires the secret key to be present in the GPG keyrings.
 ```bash
 gpg --output decrypted_message.txt --decrypt encrypted_message.asc
 ```
 
-## 5. Encrypt/Decrypt a File
+## 6. [Encrypt/Decrypt a File](#6-encryptdecrypt-a-file)
 
 ### Encrypt a File
 
 ```bash
-gpg --output encrypted_file.gpg --encrypt --recipient recipient@example.com file_to_encrypt.txt
+gpg --output encrypted_file.gpg --encrypt --recipient <PUBLIC_KEY_FINGERPRINT> file_to_encrypt.txt
 ```
 
 ### Decrypt a File
@@ -75,33 +86,33 @@ gpg --output encrypted_file.gpg --encrypt --recipient recipient@example.com file
 gpg --output decrypted_file.txt --decrypt encrypted_file.gpg
 ```
 
-## 6. Saving Own Private Key Securely
+## 7. [Saving Own Private Key Securely](#7-saving-own-private-key-securely)
 
 ```bash
 gpg --armor --output private_key.asc --export-secret-keys your.email@example.com
 ```
 
-## 7. Importing Private Key on New Device
+## 8. [Importing Private Key on New Device](#8-importing-private-key-on-new-device)
 
 ```bash
 gpg --import private_key.asc
 ```
 
-## 8. Deleting a GPG Key Pair
+## 9. [Deleting a GPG Key Pair](#9-deleting-a-gpg-key-pair)
 
 ### Delete Public Key
 
 ```bash
-gpg --delete-key your.email@example.com
+gpg --delete-key <KEY_FINGERPRINT>
 ```
 
 ### Delete Secret Key
 
 ```bash
-gpg --delete-secret-key your.email@example.com
+gpg --delete-secret-key <KEY_FINGERPRINT>
 ```
 
-## 9. Signing a Message or File
+## 10. [Signing a Message or File](#10-signing-a-message-or-file)
 Here we'll guide you through the process of signing a file with your GPG key pair and verifying the signature. This ensures that the recipient knows the file came from you and has not been tampered with. Suppose you want to sign the file `spam.txt`.
 
 ### Step 1: Sign the File
@@ -142,7 +153,7 @@ Here we'll guide you through the process of signing a file with your GPG key pai
 
    If the signature is valid and the file has not been altered, the recipient will see a message indicating that the signature is good and that it came from you.
 
-## 11. GPG Key Fingerprint
+## 11. [GPG Key Fingerprint](#11-gpg-key-fingerprint)
 The fingerprint of a GPG (GNU Privacy Guard) key is a unique identifier that represents the key itself. It serves as a cryptographic hash of the key's public component and is used to uniquely identify the key without revealing the key itself.
 
 ### Viewing Key Fingerprint

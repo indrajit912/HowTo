@@ -26,6 +26,23 @@
 #   - This script assumes that you have a local git repository already set up.
 #   - Make sure that your local repository has the necessary git history before running.
 #
+# To use this script from any directory:
+#   1. Place this script in a folder (e.g., ~/Documents/hello_world/HowTo/scripts)
+#   2. Add that folder to your PATH by editing your ~/.bashrc or ~/.zshrc:
+#
+#       export PATH="$PATH:/home/indrajit/Documents/hello_world/HowTo/scripts"
+#
+#   3. Reload your shell config:
+#
+#       source ~/.bashrc   # or source ~/.zshrc
+#
+#   4. Now you can run the script from anywhere like:
+#
+#       overleaf_project_setup.sh
+#
+# Make sure the script is executable:
+#       chmod +x overleaf_project_setup.sh
+#
 # ───────────────────────────────────────────────────────────────
 
 # Check if the user has provided the OVERLEAF_GIT_URL as an argument

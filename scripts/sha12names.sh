@@ -43,7 +43,7 @@ echo ""
 
 # Table header
 printf "${BOLD}%-40s | %-12s${NC}\n" "Filename" "Hash"
-printf "%s\n" "--------------------------------------------|--------------"
+printf "%s\n" "-----------------------------------------|--------------"
 
 # Loop through regular files only
 for file in *; do

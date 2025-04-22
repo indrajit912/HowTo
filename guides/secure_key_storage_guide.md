@@ -1,6 +1,6 @@
 # Securely Storing Private Keys with GPG Encryption and SHA256 Hashing
 
-**Author:** Indrajit Ghosh 
+**Author:** Indrajit Ghosh  
 **Created On:** Apr 22, 2025
 
 ## Purpose:

@@ -1,8 +1,32 @@
 #!/bin/bash
-# A script to create an Overleaf Project from an existing git repo.
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │create_overleaf_project.sh                                   │
+# └─────────────────────────────────────────────────────────────┘
+# Description:
+#   - A script to create an Overleaf project from an existing git repository.
+#   - This script will:
+#     1. Checkout the `master` branch.
+#     2. Add the Overleaf git repository as a remote.
+#     3. Pull the `master` branch from the Overleaf repository (allowing unrelated histories).
+#     4. Stage, commit, revert, and push the changes to Overleaf.
+#
 # Author: Indrajit Ghosh
 # Created On: Jun 21, 2024
-# 
+#
+# Usage:
+#   - Run the script with the Overleaf Git URL as the argument:
+#
+#     ./overleaf_project_setup.sh <OVERLEAF_GIT_URL>
+#
+# Example:
+#   ./overleaf_project_setup.sh https://git.overleaf.com/<project-id>
+#
+# Important Notes:
+#   - This script assumes that you have a local git repository already set up.
+#   - Make sure that your local repository has the necessary git history before running.
+#
+# ───────────────────────────────────────────────────────────────
 
 # Check if the user has provided the OVERLEAF_GIT_URL as an argument
 if [ "$#" -ne 1 ]; then

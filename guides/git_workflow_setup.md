@@ -58,7 +58,20 @@
     ```
    - By default, it saves to `~/.ssh/id_ed25519`.
 
-7. **Add SSH Public Key to GitHub**
+7. **Add custom SSH key to ~/.ssh/config**
+    - Open the SSH config file (create it if it doesn’t exist):
+    ```bash
+    vim ~/.ssh/config
+    ```
+    Add this block (replace github_custom_key with your actual private key filename):
+    ```bash
+    Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_custom_key
+    ```
+
+8. **Add SSH Public Key to GitHub**
    - Copy the key:
      ```
      cat ~/.ssh/id_ed25519.pub
@@ -66,6 +79,15 @@
    - Add it to GitHub:  
      GitHub > Settings > SSH and GPG Keys > New SSH Key
 
+9. **Test your SSH setup with GitHub**
+    - After adding your key and updating ~/.ssh/config, run this command:
+      ```bash
+      ssh -T git@github.com
+      ```
+      If it's working correctly, you'll see a message like:
+      ```bash
+      Hi your-username! You've successfully authenticated, but GitHub does not provide shell access.
+      ```
 ---
 
 ## Local Workflow

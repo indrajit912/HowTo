@@ -28,7 +28,7 @@ Browse the following installation and setup guides for commonly used software:
 
 - [LaTeX Distribution Setup](guides/install_latex.md)
 
-- [My GitHub Workflow](guides/github_workflow.md)
+- [My GitHub Workflow](guides/git_workflow_setup.md)
 
 - [MySQL Installation](guides/install_mysql.md)
 

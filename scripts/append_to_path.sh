@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ###############################################################################
-# Script to append a directory to the PATH environment variable
+# Script to append an absolute directory to the PATH environment variable
 # in a user's shell configuration file (.bash_profile or .bashrc).
 #
 # Author: Indrajit Ghosh
@@ -12,7 +12,7 @@
 #
 # The script checks for the existence of ~/.bash_profile or ~/.bashrc and
 # appends the line:
-#   export PATH="$PATH:/your/directory/path"
+#   export PATH=$PATH:/your/directory/path
 # if it's not already present. It supports macOS and most Linux distributions.
 ###############################################################################
 
@@ -27,9 +27,12 @@ fi
 
 DIR_TO_ADD=$1
 
+# Convert the provided path to an absolute path
+ABSOLUTE_PATH=$(realpath "$DIR_TO_ADD" 2>/dev/null || echo "$DIR_TO_ADD")
+
 # Check if directory exists
-if [ ! -d "$DIR_TO_ADD" ]; then
-  echo "Error: Directory '$DIR_TO_ADD' does not exist."
+if [ ! -d "$ABSOLUTE_PATH" ]; then
+  echo "Error: Directory '$ABSOLUTE_PATH' does not exist."
   exit 1
 fi
 
@@ -44,13 +47,12 @@ else
   touch "$PROFILE_FILE"
 fi
 
-EXPORT_LINE="export PATH=\"\$PATH:$DIR_TO_ADD\""
+EXPORT_LINE="export PATH=\$PATH:$ABSOLUTE_PATH"
 
 # Check if the line is already in the file
 if grep -Fxq "$EXPORT_LINE" "$PROFILE_FILE"; then
-  echo "PATH already contains '$DIR_TO_ADD' in $PROFILE_FILE"
+  echo "PATH already contains '$ABSOLUTE_PATH' in $PROFILE_FILE"
 else
   echo "$EXPORT_LINE" >> "$PROFILE_FILE"
-  echo "Added '$DIR_TO_ADD' to PATH in $PROFILE_FILE"
+  echo "Added '$ABSOLUTE_PATH' to PATH in $PROFILE_FILE"
 fi
-

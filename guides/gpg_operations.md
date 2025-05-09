@@ -41,6 +41,7 @@ Use the following command to list all public and secret keys
 ```bash
 gpg --list-keys  # For listing public keys
 gpg --list-secret-keys  # For listing secret keys
+gpg --list-secret-keys --keyid-format=long # to list the long form of the GPG keys for which you have both a public and private key
 ```
 Note that you can see the fingerprint of the key when you list the keys!
 

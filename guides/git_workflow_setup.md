@@ -39,6 +39,37 @@
    - Add it to GitHub:  
      GitHub > Settings > SSH and GPG Keys > New GPG Key
 
+5. **⚠️ Important: When Commit Email Differs from GPG UID**
+
+    If the `user.email` in your Git config is different from the email(s) attached to your GPG key, GPG will **refuse to sign** the commit unless that email is also a UID on the key.
+
+    **To fix this:**
+
+    1. Open your GPG key for editing:
+    
+       ```bash
+       gpg --edit-key <your-key-id>
+       ```
+    
+    2. Add a new UID (email identity). Enter the following interactive commands:
+    
+       ```bash
+       adduid
+        # You'll be prompted for:
+        #   Real name: Indrajit Ghosh
+        #   Email address: <Enter The Email You wanna Add>
+        #   Comment: (leave blank or put something like "My work email")
+        #   Change (O)kay? o
+    
+        save
+       ```
+    
+    
+    3. (Optional) Re-export and re-import this key on your other machines if needed.
+    
+    > 💡 This allows you to keep your work email (`user.email`) for commits while signing them with your personal GPG key.
+    
+
 5. **Install OpenSSH**
    - Required for SSH authentication.
    - Install via:
